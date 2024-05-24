@@ -5,9 +5,9 @@ services:
     volumes:
       - ./app:/var/www/vulndrake/app
       - /var/run/docker.sock:/var/run/docker.sock
+    command: sh -c "apk add --no-cache docker-cli && addgroup -S docker && addgroup www-data docker && chown www-data /var/run/docker.sock && php-fpm"
     depends_on:
       - vulndrake-worker
-    command: sh -c "apk add --no-cache docker-cli && addgroup -S docker && addgroup www-data docker && chown www-data /var/run/docker.sock && php-fpm"
 
   vulndrake-worker:
     image: alpine:latest
@@ -22,6 +22,8 @@ services:
       pip install gvm-tools && \
       adduser -D -h /home/gvm-user gvm-user && \
       tail -f /dev/null"
+    depends_on:
+      - gvmd
 
   nginx:
     image: nginx

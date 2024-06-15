@@ -4,6 +4,7 @@ services:
     container_name: vulndrake-web
     volumes:
       - ./app:/var/www/vulndrake/app
+      - ./worker/reports:/var/www/vulndrake/worker/reports
       - /var/run/docker.sock:/var/run/docker.sock
     command: sh -c "apk add --no-cache docker-cli && addgroup -S docker && addgroup www-data docker && chown www-data /var/run/docker.sock && php-fpm"
     depends_on:

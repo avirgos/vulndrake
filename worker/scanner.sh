@@ -1,8 +1,7 @@
 #!/bin/sh
 
-CONFIG_FILE="worker/config.cfg"
-USERNAME=$(grep "username" "${CONFIG_FILE}" | cut -d" " -f3)
-PASSWORD=$(grep "password" "${CONFIG_FILE}" | cut -d" " -f3)
+USERNAME=${GMP_USERNAME}
+PASSWORD=${GMP_PASSWORD}
 
 . worker/venv/bin/activate
 

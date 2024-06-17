@@ -6,7 +6,17 @@ services:
       - ./app:/var/www/vulndrake/app
       - ./worker/reports:/var/www/vulndrake/worker/reports
       - /var/run/docker.sock:/var/run/docker.sock
-    command: sh -c "apk add --no-cache docker-cli && addgroup -S docker && addgroup www-data docker && chown www-data /var/run/docker.sock && php-fpm"
+    command: sh -c "
+      apk add --no-cache docker-cli && \
+      apk add --no-cache libzip-dev zip unzip && \
+      docker-php-ext-install zip && \
+      apk add --no-cache git && \
+      curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
+      composer --working-dir=/var/www/vulndrake/app require tecnickcom/tcpdf && \
+      addgroup -S docker && \
+      addgroup www-data docker && \
+      chown www-data /var/run/docker.sock && \
+      php-fpm"
     depends_on:
       - vulndrake-worker
 
@@ -25,6 +35,8 @@ services:
       . worker/venv/bin/activate && \
       pip install gvm-tools && \
       adduser -D -h /home/gvm-user gvm-user && \
+      mkdir -p /worker/reports && \
+      chown -R gvm-user:gvm-user /worker && \
       tail -f /dev/null"
     depends_on:
       - gvmd

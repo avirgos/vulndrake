@@ -13,14 +13,18 @@ class ManualController {
 
         if (strpos($output, "Report saved as") !== false) {
             preg_match('/Report saved as (.*)$/', $output, $matches);
-            $reportFile = trim($matches[1]);
-
-            $reportUrl = "/worker/reports/" . basename($reportFile);
-
-            return ["success" => true, "report_url" => $reportUrl, "report_name" => basename($reportFile)];
+            
+            if (isset($matches[1])) {
+                $reportFile = trim($matches[1]);
+                $reportUrl = "/worker/reports/" . basename($reportFile);
+        
+                return ["success" => true, "report_url" => $reportUrl, "report_name" => basename($reportFile)];
+            } else {
+                return ["success" => false, "error" => "Le chemin du fichier de rapport n'a pas été trouvé dans la sortie."];
+            }
         } else {
-            return ["success" => false, "error" => "Report generation error"];
-        }
+            return ["success" => false, "error" => "Erreur de génération du rapport."];
+        }        
     }
 
     public function convertXmlToPdf($xmlFile, $xmlFileName) {

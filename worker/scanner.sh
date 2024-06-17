@@ -4,6 +4,7 @@
 
 USERNAME="${GMP_USERNAME}"
 PASSWORD="${GMP_PASSWORD}"
+SOCKET_PATH="/run/gvmd/gvmd.sock"
 
 TIMESTAMP=$(date +%Y%m%d%H%M%S)
 UNIQUE_ID=$$
@@ -19,10 +20,8 @@ FORMAT_ID="a994b278-1f62-11e1-96ac-406186ea4fc5"    # XML
 REPORT_DIR="/worker/reports"
 REPORT_FILE="${REPORT_DIR}/VulnDrake-Report-${TIMESTAMP}-${UNIQUE_ID}.xml"
 
-mkdir -p "${REPORT_DIR}"
-
 gvm_command() {
-    gvm-cli --gmp-username "${USERNAME}" --gmp-password "${PASSWORD}" socket --socketpath /run/gvmd/gvmd.sock --xml "$1"
+    gvm-cli --gmp-username "${USERNAME}" --gmp-password "${PASSWORD}" socket --socketpath "${SOCKET_PATH}" --xml "$1"
 }
 
 CREATE_TARGET_XML="<create_target><name>${TARGET_NAME}</name><hosts>${TARGET_IP}</hosts><port_list id='${PORT_LIST_ID}'/></create_target>"

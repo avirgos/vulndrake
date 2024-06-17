@@ -15,10 +15,10 @@ TARGET_IP="${1}"
 
 PORT_LIST_ID="730ef368-57e2-11e1-a90f-406186ea4fc5" # to customize
 CONFIG_ID="d21f6c81-2b88-4ac1-b7b4-a2a9f2ad4663"    # to customize
-FORMAT_ID="a994b278-1f62-11e1-96ac-406186ea4fc5"    # XML
+FORMAT_ID="c402cc3e-b531-11e1-9163-406186ea4fc5"    # PDF
 
 REPORT_DIR="/worker/reports"
-REPORT_FILE="${REPORT_DIR}/VulnDrake-Report-${TIMESTAMP}-${UNIQUE_ID}.xml"
+REPORT_FILE="${REPORT_DIR}/VulnDrake-Report-${TIMESTAMP}-${UNIQUE_ID}.pdf"
 
 gvm_command() {
     gvm-cli --gmp-username "${USERNAME}" --gmp-password "${PASSWORD}" socket --socketpath "${SOCKET_PATH}" --xml "$1"
@@ -46,14 +46,10 @@ do
         REPORT_ID=$(echo "${GET_TASK_RESPONSE}" | sed -n 's/.*<last_report>.*<report id="\([^"]*\)".*/\1/p')
 
         if test -n "${REPORT_ID}"
-        then
-            GET_REPORT_XML="<get_reports report_id='${REPORT_ID}' format_id='${FORMAT_ID}'/>"
-            GET_REPORT_RESPONSE=$(gvm_command "${GET_REPORT_XML}")
-               
-            echo "${GET_REPORT_RESPONSE}" > "${REPORT_FILE}"
-            echo "Report saved as ${REPORT_FILE}"
-            chmod 644 "${REPORT_FILE}"
+        then 
+            gvm-script --gmp-username "${USERNAME}" --gmp-password "${PASSWORD}" socket --socketpath "${SOCKET_PATH}" worker/export-pdf-report.gmp.py "${REPORT_ID}" "${REPORT_FILE}"
 
+            echo "Report saved as ${REPORT_FILE}"
             exit 0
         else
             echo "No report ID found. Task completed but no report generated."

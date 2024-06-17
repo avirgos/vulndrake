@@ -4,7 +4,7 @@ services:
     container_name: vulndrake-web
     volumes:
       - ./app:/var/www/vulndrake/app
-      - ./worker/reports:/var/www/vulndrake/worker/reports
+      - ./worker/reports:/var/www/vulndrake/app/data/reports
       - /var/run/docker.sock:/var/run/docker.sock
     command: sh -c "
       apk add --no-cache docker-cli && \

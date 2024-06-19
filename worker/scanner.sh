@@ -17,7 +17,7 @@ PORT_LIST_ID="730ef368-57e2-11e1-a90f-406186ea4fc5" # to customize
 CONFIG_ID="d21f6c81-2b88-4ac1-b7b4-a2a9f2ad4663"    # to customize
 FORMAT_ID="c402cc3e-b531-11e1-9163-406186ea4fc5"    # PDF
 
-REPORT_DIR="/worker/reports"
+REPORT_DIR="/worker"
 REPORT_FILE="${REPORT_DIR}/VulnDrake-Report-${TIMESTAMP}-${UNIQUE_ID}.pdf"
 
 gvm_command() {

@@ -9,10 +9,13 @@
 <body>
     <h1>VulnDrake</h1>
     <div id="manual">
-        <?php include "./vue/manual_menu.php"; ?>
+        <?php include "./vue/manual.php"; ?>
     </div>
     <div id="automatic">
-        <?php include "./vue/automatic_menu.php"; ?>
+        <?php include "./vue/automatic.php"; ?>
+    </div>
+    <div id="history">
+        <?php include "./vue/history.php"; ?>
     </div>
 </body>
 </html>

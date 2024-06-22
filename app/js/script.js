@@ -1,10 +1,10 @@
 function checkConnection(statusMessage, executeButton) {
-    var xhr = new XMLHttpRequest();
+    const xhr = new XMLHttpRequest();
     xhr.open("GET", "../controller/check_connection.php", true);
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            var response = JSON.parse(xhr.responseText);
+            const response = JSON.parse(xhr.responseText);
 
             if (response.status === "connected") {
                 executeButton.disabled = false;
@@ -24,8 +24,8 @@ function checkConnection(statusMessage, executeButton) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    var statusMessage = document.getElementById("status-message");
-    var executeButton = document.querySelector('button[name="execute"]');
+    const statusMessage = document.getElementById("status-message");
+    const executeButton = document.querySelector('button[name="execute"]');
 
     executeButton.disabled = true;
 

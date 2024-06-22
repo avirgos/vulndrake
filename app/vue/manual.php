@@ -1,6 +1,6 @@
 <h2>Manuel</h2>
 
-<form method="post" action="../controller/execute_scanner.php">
+<form method="post" action="../vue/scanner.php">
     <label for="ip-address">Adresse IP à scanner :</label>
     <input type="text" id="ip-address" name="ip-address" required>
     

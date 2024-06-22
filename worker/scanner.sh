@@ -13,8 +13,7 @@ TASK_NAME="VulnDrake-Scan-Task-${TIMESTAMP}-${UNIQUE_ID}"
 
 TARGET_IP="${1}"
 PORT_LIST_ID="${2}"
-
-CONFIG_ID="d21f6c81-2b88-4ac1-b7b4-a2a9f2ad4663"    
+CONFIG_ID="d21f6c81-2b88-4ac1-b7b4-a2a9f2ad4663"    # basic configuration with a minimum set of NVTs required for a scan
 FORMAT_ID="c402cc3e-b531-11e1-9163-406186ea4fc5"    # PDF
 
 REPORT_DIR="/worker"

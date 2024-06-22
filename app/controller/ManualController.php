@@ -2,9 +2,9 @@
 namespace App\Controller;
 
 class ManualController {
-    public function executeScanner($ipAddress) {
+    public function executeScanner($ipAddress, $selectedPortList) {
         $containerName = "vulndrake-worker";
-        $command = "docker exec -u gvm-user $containerName sh worker/scanner.sh $ipAddress 2>&1";
+        $command = "docker exec -u gvm-user $containerName sh worker/scanner.sh $ipAddress $selectedPortList 2>&1";
         $output = shell_exec($command);
 
         if (strpos($output, "Report saved as") !== false) {

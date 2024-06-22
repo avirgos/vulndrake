@@ -4,10 +4,17 @@ require_once "ManualController.php";
 $manualController = new \App\Controller\ManualController();
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["execute"])) {
-    $ipAddress = $_POST["ip_address"];
+    $ipAddress = $_POST["ip-address"];
+    $selectedPortList = null;
+
+    if (isset($_POST["port-list"])) {
+        $selectedPortList = $_POST["port-list"];
+    } else {
+        $selectedPortList = "730ef368-57e2-11e1-a90f-406186ea4fc5";
+    }
 
     if (filter_var($ipAddress, FILTER_VALIDATE_IP)) {
-        $scanResult = $manualController->executeScanner($ipAddress);
+        $scanResult = $manualController->executeScanner($ipAddress, $selectedPortList);
 
         if ($scanResult["success"]) {
             echo "<h3>Scan réussi !</h3>";

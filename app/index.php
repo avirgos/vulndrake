@@ -11,18 +11,29 @@
     <link rel="mask-icon" href="data/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/manual.css">
+    <link rel="stylesheet" href="css/automatic.css">
     <script src="js/script.js"></script>
 </head>
 <body>
-    <h1>VulnDrake</h1>
-    <div id="manual">
-        <?php include "./vue/manual.php"; ?>
-    </div>
-    <div id="automatic">
-        <?php include "./vue/automatic.php"; ?>
-    </div>
+    <header>
+        <img src="data/img/icons/vulndrake.png" alt="Icône VulnDrake" width="100" height="100" class="icon-vulndrake">
+        <h1>VulnDrake</h1>
+    </header>
+    <section id="scanner">
+        <div class="manual">
+            <?php include "./vue/manual.php"; ?>
+        </div>
+        <div class="automatic">
+            <?php include "./vue/automatic.php"; ?>
+        </div>
+    </section>
     <div id="history">
         <?php include "./vue/history.php"; ?>
     </div>
+    <footer>
+        <p>© 2024 Antoine Virgos</p>
+    </footer>
 </body>
 </html>

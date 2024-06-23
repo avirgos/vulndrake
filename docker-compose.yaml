@@ -29,6 +29,7 @@ services:
       apk add --no-cache python3 py3-pip && \
       python3 -m venv worker/venv && \
       . worker/venv/bin/activate && \
+      pip install --upgrade pip && \
       pip install gvm-tools && \
       adduser -D -h /home/gvm-user gvm-user && \
       chown -R gvm-user:gvm-user /worker && \

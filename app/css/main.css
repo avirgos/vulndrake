@@ -1,0 +1,56 @@
+:root {
+    --body: #F0F0F0;
+    --header-footer: #3f5a96;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.42857143;
+    background-color: var(--body);
+    font-family: Arial, sans-serif;
+}
+
+header {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: var(--header-footer);
+    text-align: center;
+}
+
+header img.icon-vulndrake {
+    vertical-align: middle;
+}
+
+header h1 {
+    display: inline;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+#scanner {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 800px;
+    width: 100%;
+    margin: 20px auto;
+}
+
+#history {
+    margin: 20px;
+    text-align: center;
+}
+
+footer {
+    background-color: var(--header-footer);
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    margin-top: auto;
+}

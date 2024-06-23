@@ -1,0 +1,32 @@
+:root {
+    --home-button: #3F5A96;
+    --home-button-hover: #314673;
+}
+
+.scan-report {
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    max-width: 800px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 1rem;
+    border-radius: 1.25rem;
+    text-align: center;
+}
+
+#home-button {
+    max-width: 400px;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+    background-color: var(--home-button);
+    border-radius: 5px;
+    color: #FFFFFF;
+    text-align: center;
+    text-decoration: none;
+}
+
+#home-button:hover {
+    background-color: var(--home-button-hover);
+}

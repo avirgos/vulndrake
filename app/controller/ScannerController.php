@@ -17,7 +17,7 @@ class ScannerController {
             $scanResult = $manualController->executeScanner($ipAddress, $selectedPortList);
 
             if ($scanResult["success"]) {
-                echo "<h3>Scan réussi !</h3>";
+                echo "<h2>Scan réussi !</h2>";
                 
                 $pdfName = $scanResult["report_name"];
 
@@ -25,11 +25,11 @@ class ScannerController {
                 
                 echo "<p><a href='/data/reports/{$pdfName}' target='_blank'>Cliquez ici pour voir le rapport PDF</a></p>";
             } else {
-                echo "<h3>Erreur lors du scan :</h3>";
+                echo "<h2>Erreur lors du scan</h2>";
                 echo "<p>{$scanResult['error']}</p>";
             }
         } else {
-            echo "<h3>Erreur :</h3>";
+            echo "<h2>Erreur</h2>";
             echo "<p>Adresse IP invalide. Veuillez entrer une adresse IP valide.</p>";
         }
     }

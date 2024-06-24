@@ -12,7 +12,7 @@ class HistoryController {
             if (pathinfo($file, PATHINFO_EXTENSION) === "pdf") {
                 if (preg_match('/VulnDrake-Report-(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})-\d+\.pdf/', $file, $matches)) {
                     $timestamp = "{$matches[1]}-{$matches[2]}-{$matches[3]} {$matches[4]}:{$matches[5]}:{$matches[6]}";
-                    $date = "{$matches[3]}/{$matches[2]}/{$matches[1]} {$matches[4]}:{$matches[5]}:{$matches[6]}";
+                    $date = "{$matches[3]}/{$matches[2]}/{$matches[1]} {$matches[4]}:{$matches[5]}:{$matches[6]} UTC";
 
                     $reports[] = [
                         "file" => $file,
@@ -35,7 +35,7 @@ class HistoryController {
                 $filePath = "/data/reports/{$report['file']}";
 
                 echo "<li>";
-                echo "<a href='$filePath' target='_blank'>{$report['file']}</a> - {$report['date']} ";
+                echo "<a href='$filePath' target='_blank'>{$report['file']}</a> - {$report['date']}";
                 echo "</li>";
             }
             echo "</ul>";

@@ -1,4 +1,4 @@
-<h2>Historique</h2>
+<h2>Historique 📜</h2>
 
 <?php
 require_once __DIR__ . '/../controller/HistoryController.php';

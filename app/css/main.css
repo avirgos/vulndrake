@@ -33,6 +33,15 @@ header h1 {
     vertical-align: middle;
 }
 
+#scanner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
 footer {
     width: 100%;
     margin-top: auto;

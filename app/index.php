@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/manual.css">
     <link rel="stylesheet" href="css/automatic.css">
+    <link rel="stylesheet" href="css/history.css">
     <script src="js/script.js"></script>
 </head>
 <body>

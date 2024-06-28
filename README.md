@@ -13,3 +13,7 @@ cd nginx/
 
 ./renew-cert.sh
 ```
+
+Detailed report about VulnDrake (in French 🇫🇷) :
+
+![VulnDrake-report](Rapport-VulnDrake-VIRGOS.pdf)

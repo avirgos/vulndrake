@@ -1,5 +1,7 @@
 # VulnDrake
 
+![vulndrake](assets/vulndrake.png)
+
 Start VulnDrake :
 
 ```sh
@@ -13,7 +15,3 @@ cd nginx/
 
 ./renew-cert.sh
 ```
-
-Detailed report about VulnDrake (in French 🇫🇷) :
-
-![VulnDrake-report](Rapport-VulnDrake-VIRGOS.pdf)

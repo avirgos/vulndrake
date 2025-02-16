@@ -26,9 +26,6 @@
         <div class="manual">
             <?php include "./vue/manual.php"; ?>
         </div>
-        <div class="automatic">
-            <?php include "./vue/automatic.php"; ?>
-        </div>
     </section>
     <div id="history">
         <?php include "./vue/history.php"; ?>

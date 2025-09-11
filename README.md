@@ -1,6 +1,8 @@
-# VulnDrake
+<div align="center">
+    <img src="assets/vulndrake-icon.png" alt="vulndrake-icon" width="200" height="200"/>
+</div>
 
-<img src="assets/vulndrake-icon.png" alt="vulndrake-icon" width="100" height="100"/>
+# VulnDrake
 
 VulnDrake is a web-based vulnerability scanning and management application that integrates with OpenVAS to provide comprehensive security assessments.
 
@@ -29,19 +31,19 @@ VulnDrake is a web-based vulnerability scanning and management application that 
 
 ## Usage
 
-Deploy VulnDrake :
+Deploy VulnDrake:
 
 ```bash
 sudo docker compose up -d
 ```
 
-Access to VulnDrake :
+Access to VulnDrake:
 
 https://localhost
 
 ## Configuration
 
-Renew the self-signed certificate :
+Renew the self-signed certificate:
 
 ```bash
 cd nginx/

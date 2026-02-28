@@ -25,19 +25,19 @@ class ManualController {
         $sourcePath = escapeshellarg("/worker/$reportName");
         $destinationPath = escapeshellarg("/var/www/vulndrake/app/data/reports/$reportName");
 
-        // from vulndrake-worker to the host
+        // From 'vulndrake-worker' to the host
         $hostTempPath = "/tmp/$reportName";
         $command = escapeshellcmd("docker cp $sourceContainer:$sourcePath $hostTempPath");
         $output1 = shell_exec($command);
 
-        // from the host to vulndrake-web
+        // From the host to 'vulndrake-web'
         $command = escapeshellcmd("docker cp $hostTempPath $destinationContainer:$destinationPath");
         $output2 = shell_exec($command);
 
         unlink($hostTempPath);
 
         if ($output1 === null && $output2 === null) {
-            // remove the report file from vulndrake-worker
+            // Remove the report file from 'vulndrake-worker'
             $command = escapeshellcmd("docker exec $sourceContainer rm $sourcePath");
             shell_exec($command);
 

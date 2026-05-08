@@ -6,7 +6,7 @@
 
 ## Overview
 
-VulnDrake is a web-based vulnerability scanning and management application that integrates with OpenVAS to provide comprehensive security assessments.
+VulnDrake is a web application for vulnerability scanning and management, integrating OpenVAS for comprehensive security assessments.
 
 ![vulndrake](assets/vulndrake.png)
 
